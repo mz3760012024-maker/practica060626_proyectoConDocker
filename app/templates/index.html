@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" action="/add">
+    <input type="text" name="description" placeholder="Nueva tarea" required>
+    <button type="submit">Agregar</button>
+</form>
+<h2>Tareas existentes:</h2>
+{% for task in tasks %}
+<div class="task">
+    <strong>{{ task.description }}</strong><br>
+    <small>Creada: {{ task.created_at }}</small>
+</div>
+{% else %}
+<p>No hay tareas aún. ¡Agrega una!</p>
+{% endfor %}
+{% endblock %}
