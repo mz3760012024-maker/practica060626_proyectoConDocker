@@ -8,7 +8,8 @@
 {% for task in tasks %}
 <div class="task">
     <strong>{{ task.description }}</strong><br>
-    <small>Creada: {{ task.created_at }}</small>
+    <small>Creada: {{ task.created_at }}</small><br>
+    <a href="/delete/{{ task.id }}"> Eliminar</a>
 </div>
 {% else %}
 <p>No hay tareas aún. ¡Agrega una!</p>

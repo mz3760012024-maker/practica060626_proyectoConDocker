@@ -50,6 +50,15 @@ def add_task():
         conn.close()
     return redirect(url_for('index'))
 
+@app.route('/delete/<int:id>')
+def delete_task(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('DELETE FROM tasks WHERE id = %s', (id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     init_db()
