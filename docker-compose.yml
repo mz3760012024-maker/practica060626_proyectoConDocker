@@ -30,6 +30,8 @@ services:
     # En desarrollo podríamos exponer el puerto 5000 directamente, pero usaremos Nginx
     # ports:
     #   - "5000:5000"
+    deploy:
+      replicas: 2
 
   web:
     image: nginx:alpine
