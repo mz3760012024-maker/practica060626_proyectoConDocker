@@ -26,6 +26,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./app:/app
+      - ./logs:/app/logs
     # En desarrollo podríamos exponer el puerto 5000 directamente, pero usaremos Nginx
     # ports:
     #   - "5000:5000"

@@ -1,4 +1,5 @@
 import os
+import datetime
 from flask import Flask, render_template, request, redirect, url_for
 import psycopg2
 from psycopg2.extras import DictCursor
@@ -45,6 +46,8 @@ def add_task():
         conn = get_db_connection()
         cur = conn.cursor()
         cur.execute('INSERT INTO tasks (description) VALUES (%s)', (description,))
+        with open('/app/logs/actividad.log','a') as f:
+            f.write(f"{datetime.datetime.now()} - Tarea agregada: {description}\n")
         conn.commit()
         cur.close()
         conn.close()
